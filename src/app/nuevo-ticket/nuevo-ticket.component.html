@@ -1,0 +1,35 @@
+<div class="container mt-4 mb-2">
+  <div class="card">
+    <div class="card-header text-center">
+      REGISTRO DE TICKET
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (submit)="save_ticket()">
+
+        <div class="row" *ngIf="errors">
+          <div class="col">
+            <div class="alert alert-danger">
+              <strong>Oops!</strong> <br> Por favor, verifique toda la informacion.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="asunto">Asunto</label>
+          <input type="text" class="form-control" id="asunto" formControlName="asunto">
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea class="form-control" name="descripcion" id="descripcion" formControlName="descripcion" cols="30" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="file">Archivo adjunto</label>
+          <input type="file" class="form-control" id="file" formControlName="file">
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-dark btn-block" [disabled]="loading">CREAR TICKET</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+ <div class="container mt-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-resposive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Ticket #</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Fecha de generacion</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Agente asignado</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of data | paginate: { itemsPerPage: perPage, currentPage: page, totalItems: total }">
+              <td>{{ item.id }}</td>
+              <td>{{ item.user }}</td>
+              <td>{{ item.created_at }}</td>
+              <td>{{ item.state }}</td>
+              <td>{{ item.agent }}</td>
+              <td><a href="/" class="btn btn-outline-danger">Ver ticket</a></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row justify-content-center">
+          <pagination-controls
+            [previousLabel]="'Anterior'"
+            [nextLabel]="'Siguiente'"
+            (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+

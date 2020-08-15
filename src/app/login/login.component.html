@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col d-flex flex-row justify-content-center align-content-center pt-5 pb-5">
+      <div class="card mt-5">
+        <div class="card-body text-center">
+          <form [formGroup]="form" (submit)="login()">
+            <h5 class="card-title">TICKETS IT</h5>
+            <p class="card-text"><strong>Bienvenido!</strong> <br> Por favor, inicie sesión para continuar</p>
+            <div class="row" *ngIf="errors">
+              <div class="col">
+                <div class="alert alert-danger">
+                  <strong>Oops!</strong> <br> Correo electronico o contraseña inválido
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="email">Correo electronico</label>
+                  <input type="email" id="email" formControlName="email" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="password">Contraseña</label>
+                  <input type="password" id="password" formControlName="password" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col d-flex flex-row justify-content-center align-content-center">
+                <button type="submit" class="btn btn-dark col-12" [disabled]="loading">Iniciar sesión</button>
+              </div>
+            </div>
+          </form>
+          <div class="form-group">
+            <hr>
+            <label>¿Aun no tiene cuenta?</label>
+            <a href="registro_usuario" class="btn btn-dark col-12">Registrarse</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
